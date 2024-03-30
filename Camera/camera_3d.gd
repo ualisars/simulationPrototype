@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 		global_position -= Vector3(0, 0, 1)
 	if Input.is_action_pressed("CameraBack"):
 		global_position += Vector3(0, 0, 1)
-	if Input.is_action_pressed("CameraZoomIn"):
+	if Input.is_action_just_released("CameraZoomIn"):
 		global_position -= Vector3(0, 1, 0)
-	if Input.is_action_pressed("CameraZoomOut"):
+	if Input.is_action_just_released("CameraZoomOut"):
 		global_position += Vector3(0, 1, 0)
 		
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
