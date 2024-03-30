@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7eetfkt70v4y"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l58fj"]
+
+[node name="Player" type="Node3D"]
+
+[node name="PlayerBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_l58fj")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
