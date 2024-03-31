@@ -30,7 +30,13 @@ func _process(delta: float) -> void:
 	ray_cast_3d.force_raycast_update()
 	
 	
-	
 	if Input.is_action_just_pressed("mouse_left_click") && ray_cast_3d.is_colliding():
 		var collision_point = ray_cast_3d.get_collision_point()
+		var collider = ray_cast_3d.get_collider()
+		
+		print(collider)
+		
+		if "settlement" in collider.get_groups():
+			print("going to city: ", collider.name)
+		
 		player.move_to_target_position(collision_point)

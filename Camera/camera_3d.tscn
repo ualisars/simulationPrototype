@@ -7,3 +7,5 @@ transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 
 script = ExtResource("1_3kq5o")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 3
+collide_with_areas = true

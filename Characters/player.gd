@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 func move_to_target_position(target_position: Vector3):
 	navigation_agent_3d.target_position = target_position
-	print("Player is moving to:", navigation_agent_3d.target_position)
+
 
 func _ready() -> void:
 	pass
@@ -21,4 +21,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * speed
 		
 		move_and_slide()
-

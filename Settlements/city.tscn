@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmj1ghbmfb4uq"]
+
+[ext_resource type="Script" path="res://Settlements/city.gd" id="1_idsiu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tu4c7"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqrfi"]
+size = Vector3(4, 1, 4)
+
+[node name="City" type="Area3D" groups=["settlement"]]
+script = ExtResource("1_idsiu")
+
+[node name="City Wall" type="MeshInstance3D" parent="." groups=["settlement"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00984812, 0.00780475, 0.000522137)
+mesh = SubResource("BoxMesh_tu4c7")
+
+[node name="Label3D" type="Label3D" parent="City Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09495, 0)
+billboard = 1
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+text = "City Name"
+font_size = 140
+outline_size = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mqrfi")
