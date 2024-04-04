@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyhyjhujh6t82"]
+
+[ext_resource type="PackedScene" uid="uid://bspg3n2sn56qm" path="res://UI/slot.tscn" id="1_glp01"]
+[ext_resource type="Script" path="res://UI/inventory.gd" id="1_jwphm"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 301.0
+offset_top = -2.0
+offset_right = -116.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwphm")
+
+[node name="InventoryContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(17, 17)
+layout_mode = 2
+anchor_left = 0.003
+anchor_top = 0.003
+anchor_right = 0.003
+anchor_bottom = 0.003
+offset_left = -58.205
+offset_top = -0.944
+offset_right = 502.795
+offset_bottom = 646.056
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="InventoryContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="Slot" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
+layout_mode = 2
+
+[node name="Slot2" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
+layout_mode = 2
+
+[node name="Slot3" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
+layout_mode = 2
+
+[node name="Slot4" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
+layout_mode = 2
+
+[node name="Sidebar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -204.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
+layout_mode = 2
+
+[node name="InventoryButton" type="Button" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Inventory"
+
+[node name="Button" type="Button" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Army"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bspg3n2sn56qm"]
+
+[ext_resource type="Script" path="res://UI/slot.gd" id="1_ausui"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_m5i1k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqayn"]
+texture = SubResource("MeshTexture_m5i1k")
+modulate_color = Color(0.717647, 0.717647, 0.717647, 1)
+
+[node name="Slot" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+theme_override_styles/panel = SubResource("StyleBoxTexture_mqayn")
+script = ExtResource("1_ausui")
