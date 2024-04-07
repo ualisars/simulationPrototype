@@ -6,24 +6,38 @@ var inventory_node: Control
 
 
 func _ready() -> void:
-	connect("gui_input", on_gui_input, CONNECT_DEFERRED)
-	inventory_node = find_parent("Inventory")
-	
 	if randi() % 2 == 0:
 		item = ItemClass.instantiate()
 		add_child(item)
 		
 
-func on_gui_input(event: InputEvent):
-	if event.is_action_pressed("mouse_left_click"):
-		pick_from_slot()
-	if event.is_action_released("mouse_left_click"):
-		put_into_slot()
-		
+func _notification(what:int)->void:
+	if what == Node.NOTIFICATION_DRAG_BEGIN:
+		# Drag data is available (populated by our _get_drag_data() function for example)
+		var data = get_viewport().gui_get_drag_data()
+		# Use the drag data
+	if what == Node.NOTIFICATION_DRAG_END:
+		# Drag data is no longer available and has been disposed already
+		print("Drag ended. Success: ", get_viewport().gui_is_drag_successful())
 
-func pick_from_slot() -> void:
-	inventory_node.hold_item()
+
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	print("drag data")
+	var preview_item = item.duplicate()
+	set_drag_preview(preview_item)
 	
-func put_into_slot() -> void:
-	inventory_node.place_item()
+	remove_child(item)
+	
+	return self
 
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return item == null
+
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	print("drop data")
+	print("current slot", name)
+	print("from slot", data.name)
+	print("data item", data.item.item_type)
+	var new_item = data.item.duplicate()
+	add_child(new_item)
