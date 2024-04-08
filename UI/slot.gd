@@ -5,10 +5,11 @@ var item: Control = null
 var inventory_node: Control
 
 
-func _ready() -> void:
-	if randi() % 2 == 0:
-		item = ItemClass.instantiate()
-		add_child(item)
+func add_item(item_type):
+	item = ItemClass.instantiate()
+	item.add_icon(item_type)
+	add_child(item)
+
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if get_child_count() == 0:

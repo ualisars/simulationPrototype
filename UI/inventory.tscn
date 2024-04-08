@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyhyjhujh6t82"]
+[gd_scene load_steps=2 format=3 uid="uid://dyhyjhujh6t82"]
 
-[ext_resource type="PackedScene" uid="uid://bspg3n2sn56qm" path="res://UI/slot.tscn" id="1_glp01"]
 [ext_resource type="Script" path="res://UI/inventory.gd" id="1_jwphm"]
 
 [node name="Inventory" type="Control"]
@@ -34,18 +33,6 @@ layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
-
-[node name="Slot" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
-layout_mode = 2
-
-[node name="Slot2" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
-layout_mode = 2
-
-[node name="Slot3" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
-layout_mode = 2
-
-[node name="Slot4" parent="InventoryContainer/GridContainer" instance=ExtResource("1_glp01")]
-layout_mode = 2
 
 [node name="Sidebar" type="MarginContainer" parent="."]
 layout_mode = 1

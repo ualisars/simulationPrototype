@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4v46gya8mixj"]
+[gd_scene load_steps=2 format=3 uid="uid://c4v46gya8mixj"]
 
 [ext_resource type="Script" path="res://Item.gd" id="1_omad4"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_s7cct"]
 
 [node name="Item" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -10,12 +8,3 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_omad4")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
-texture = SubResource("ImageTexture_s7cct")
-expand_mode = 1

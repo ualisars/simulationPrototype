@@ -2,6 +2,19 @@ extends Control
 
 var dragged_slot = null
 
+@onready var grid_container: GridContainer = $InventoryContainer/GridContainer
+
+var SlotClass = preload("res://UI/slot.tscn")
+
+func _ready() -> void:
+	for i in range(10):
+		var slot = SlotClass.instantiate()
+		grid_container.add_child(slot)
+		
+		if i == 0:
+			slot.add_item("sword")
+		elif i == 1:
+			slot.add_item("bow")
 
 func _notification(what:int)->void:
 	if what == Node.NOTIFICATION_DRAG_BEGIN:
