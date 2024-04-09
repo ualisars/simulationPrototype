@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnh2lgwnk5j5"]
+
+[ext_resource type="Script" path="res://inputs/main_inputs.gd" id="1_edo26"]
+
+[node name="MainInputs" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_edo26")

@@ -1,10 +1,25 @@
 extends Control
 
-var dragged_slot = null
+var dragged_slot: Panel = null
 
 @onready var grid_container: GridContainer = $InventoryContainer/GridContainer
 
-var SlotClass = preload("res://UI/slot.tscn")
+var SlotClass: PackedScene = preload("res://UI/slot.tscn")
+
+signal opened
+signal closed
+
+var is_open: bool = false :
+	set(value):
+		if value:
+			visible = true
+			is_open = true
+			opened.emit()
+		else:
+			visible = false
+			is_open = false
+			closed.emit()
+
 
 func _ready() -> void:
 	for i in range(10):
@@ -15,6 +30,7 @@ func _ready() -> void:
 			slot.add_item("sword")
 		elif i == 1:
 			slot.add_item("bow")
+
 
 func _notification(what:int)->void:
 	if what == Node.NOTIFICATION_DRAG_BEGIN:

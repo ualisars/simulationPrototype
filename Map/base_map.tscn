@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://blntao8m3uv2m"]
+[gd_scene load_steps=13 format=3 uid="uid://blntao8m3uv2m"]
 
 [ext_resource type="PackedScene" uid="uid://bg3hxddxdn8bc" path="res://Camera/camera_3d.tscn" id="1_bf433"]
+[ext_resource type="Script" path="res://Map/base_map.gd" id="1_jrklg"]
 [ext_resource type="PackedScene" uid="uid://b7eetfkt70v4y" path="res://Characters/player.tscn" id="2_03e53"]
 [ext_resource type="PackedScene" uid="uid://bmj1ghbmfb4uq" path="res://Settlements/city.tscn" id="3_2hp2y"]
+[ext_resource type="PackedScene" uid="uid://dyhyjhujh6t82" path="res://UI/inventory.tscn" id="4_418s4"]
+[ext_resource type="PackedScene" uid="uid://cnh2lgwnk5j5" path="res://inputs/main_inputs.tscn" id="5_2vo03"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oh55g"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,6 +32,7 @@ size = Vector3(10, 10, 10)
 
 [node name="BaseMap" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7649, -19.8877, -1.08731)
+script = ExtResource("1_jrklg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -70,3 +74,13 @@ city_name = "Yoks"
 [node name="City2" parent="." instance=ExtResource("3_2hp2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 9)
 city_name = "Alfir"
+
+[node name="Inventory" parent="." instance=ExtResource("4_418s4")]
+process_mode = 2
+visible = false
+
+[node name="MainInputs" parent="." node_paths=PackedStringArray("inventory_ui") instance=ExtResource("5_2vo03")]
+inventory_ui = NodePath("../Inventory")
+
+[connection signal="closed" from="Inventory" to="." method="_on_inventory_closed"]
+[connection signal="opened" from="Inventory" to="." method="_on_inventory_opened"]
